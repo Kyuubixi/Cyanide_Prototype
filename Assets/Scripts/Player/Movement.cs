@@ -5,8 +5,9 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private Rigidbody rb;
-
+    [SerializeField]
     public float movementSpeed = 0.5f;
+    public float normalMovementSpeed = 0.5f;
     [SerializeField]
     private float rotateSpeed = 2f;
 
@@ -32,6 +33,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         trailRenderer = GetComponent<TrailRenderer>();
+
 
         trailGradient = new Gradient();
         colorKey = new GradientColorKey[2];
@@ -73,11 +75,14 @@ public class Movement : MonoBehaviour
         {
             trailRenderer.time = 0.7f;
         }
-
+        if(trailRenderer.time > 3f)
+        {
+            trailRenderer.time = 3f;
+        }
     }
     private void FixedUpdate()
     {
-        rb.MovePosition(transform.position + transform.forward * movementSpeed * Time.timeScale);
+        rb.MovePosition(transform.position + transform.forward * movementSpeed);
     
         if(Input.GetAxisRaw("Horizontal") > 0.1f) // Turn right
         {
@@ -90,7 +95,7 @@ public class Movement : MonoBehaviour
 
         if((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.JoystickButton0)) && trailRenderer.time > 0.7f) // Move faster
         {
-            movementSpeed = 1f;
+            movementSpeed = normalMovementSpeed * 2;
             trailRenderer.colorGradient = trailGradient;
             isFlyingFast = true;
 
@@ -98,7 +103,7 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            movementSpeed = 0.5f;
+            movementSpeed = normalMovementSpeed;
             trailRenderer.colorGradient = trailGradientNormal;
             isFlyingFast = false;
         }

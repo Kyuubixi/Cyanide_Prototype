@@ -10,6 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4983089730483293824}
   - component: {fileID: 4983089730483293825}
+  - component: {fileID: 218955578}
+  - component: {fileID: 218955580}
+  - component: {fileID: 218955579}
+  - component: {fileID: 218955581}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -46,9 +50,84 @@ MonoBehaviour:
   kulka: {fileID: 0}
   deathScreen: {fileID: 0}
   pauseScreen: {fileID: 0}
+  shopScreen: {fileID: 0}
   mainEventSystem: {fileID: 0}
   boostSlider: {fileID: 0}
   trailRenderer: {fileID: 0}
   screenShake: {fileID: 0}
   screenShakeDuration: 0.5
   screenShakeMagnitude: 0.5
+  screnshakeWasExecuted: 0
+  audioSource: {fileID: 0}
+  selectSFX: {fileID: 8300000, guid: d1e689fee1bd4ce4b8715a09278e1409, type: 3}
+  pressSFX: {fileID: 8300000, guid: effe0913fda8a314e9e46404565d92c8, type: 3}
+  explosionSource: {fileID: 0}
+  explosionSFX: {fileID: 8300000, guid: 8364518262a7da04fbd43246d08f8d32, type: 3}
+  boostCost: 20
+  boostCostText: {fileID: 0}
+  speedCost: 50
+  speedCostText: {fileID: 0}
+  boostBuyButton: {fileID: 0}
+  speedBuyButton: {fileID: 0}
+  persuasionSkill: 0
+  persuasionCooldown: {fileID: 218955578}
+--- !u!114 &218955578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4983089730483293831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cef9608ef6e9434fbc46841213a175c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownText: {fileID: 0}
+  cooldownTime: 30
+  timer: 0
+  gameManager: {fileID: 4983089730483293825}
+  CR_Running: 0
+--- !u!114 &218955580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4983089730483293831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41370ff99060eff438bf76d611d843ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillText: {fileID: 0}
+  skillLvl: 0
+  gameManager: {fileID: 4983089730483293825}
+--- !u!114 &218955579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4983089730483293831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1def918917b0aa84c96055f4e0568946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  kulka: {fileID: 0}
+--- !u!114 &218955581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4983089730483293831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b217e719dac64ad4d9b5a3774d845d0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  kulka: {fileID: 0}

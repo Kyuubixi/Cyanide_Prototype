@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameManagerMenu : MonoBehaviour
+public class GameManagerMenu : MonoBehaviour, ISelectHandler, ISubmitHandler
 {
     EventSystem evt;
 
@@ -18,6 +18,11 @@ public class GameManagerMenu : MonoBehaviour
     [Header("Options")]
     public Options gameOptions;
     public TMP_Dropdown resolutionDropdown;
+
+    [Header("Sounds")]
+    public AudioSource audioSource;
+    public AudioClip selectSFX;
+    public AudioClip pressSFX;
 
     Resolution[] resolutions;
 
@@ -112,5 +117,17 @@ public class GameManagerMenu : MonoBehaviour
     public void QuitConfirm()
     {
         Application.Quit();
+    }
+
+    public void OnSelect(BaseEventData eventData)
+    {
+        audioSource.PlayOneShot(selectSFX);
+        Debug.Log("Selected");
+    }
+
+    public void OnSubmit(BaseEventData eventData)
+    {
+        audioSource.PlayOneShot(pressSFX);
+        Debug.Log("Selected");
     }
 }

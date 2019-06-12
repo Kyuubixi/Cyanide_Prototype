@@ -6,18 +6,18 @@ using TMPro;
 
 public class GetMoney : MonoBehaviour
 {
-    public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI text;
 
     public GameObject kulka;
 
     private int money;
 
-    void FixedUpdate()
+    void Update()
     {
         if (kulka != null)
         {
             money = FindObjectOfType<PlanetDestruction>().GetComponent<PlanetDestruction>().money;
-            moneyText.text = money.ToString() + "$";
+            text.text = money.ToString() + "$";
         }
     }
 }

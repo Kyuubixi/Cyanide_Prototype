@@ -6,7 +6,7 @@ using TMPro;
 
 public class GetScore : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI text;
 
     public GameObject kulka;
 
@@ -17,7 +17,7 @@ public class GetScore : MonoBehaviour
         if (kulka != null)
         {
             score = FindObjectOfType<PlanetDestruction>().GetComponent<PlanetDestruction>().score;
-            scoreText.text = score.ToString();
+            text.text = score.ToString();
         }
     }
 }

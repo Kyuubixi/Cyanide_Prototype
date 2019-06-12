@@ -11,8 +11,7 @@ public class PlanetDestruction : MonoBehaviour
 
     public TrailRenderer getTrailRenderer;
 
-    public int score = 0;
-    public int money = 0;
+    public int score = 0, money = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,7 +21,29 @@ public class PlanetDestruction : MonoBehaviour
             StartCoroutine(screenShake.Shake(gameManager.screenShakeDuration, gameManager.screenShakeMagnitude));
             getTrailRenderer.time += 0.1f;
             score++;
-            money += 10;
+            if (score < 20)
+            {
+                money += Random.Range(2, 5);
+            }
+            else if (score >= 20 && score < 50)
+            {
+                money += Random.Range(5, 10);
+            }
+            else if (score >= 50 && score <= 100)
+            {
+                money += Random.Range(10, 15);
+            }
+            else
+            {
+                money += Random.Range(15, 25);
+            }
+
+            if(score % 10 == 0 && score > 0)
+            {
+                gameManager.persuasionSkill += 1;
+            }
+
+            gameManager.explosionSource.PlayOneShot(gameManager.explosionSFX);
         }
     }
 

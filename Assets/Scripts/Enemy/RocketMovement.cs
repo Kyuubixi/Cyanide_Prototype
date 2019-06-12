@@ -25,8 +25,8 @@ public class RocketMovement : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        rb.MovePosition(transform.position + transform.forward * movementSpeed * Time.timeScale);
+        rb.MovePosition(transform.position + transform.forward * movementSpeed);
     }
 }
