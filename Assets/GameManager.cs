@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         if(kulka == null)
         {
             deathScreen.SetActive(true);
+            evt = EventSystem.current;
             evt.SetSelectedGameObject(evt.firstSelectedGameObject);
             mainEventSystem.SetActive(false);
         }
@@ -62,10 +63,12 @@ public class GameManager : MonoBehaviour
         if ((Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.JoystickButton7)) && isPaused == false && kulka != null && shopScreen.activeSelf == false)
         {
             enablePauseScreen();
+            evt = EventSystem.current;
         }
         else if((Input.GetKeyUp(KeyCode.Escape) || Input.GetKeyUp(KeyCode.JoystickButton7)) && isPaused == true && kulka != null && shopScreen.activeSelf == false)
         {
             disablePauseScreen();
+            evt = EventSystem.current;
         }
 
         if (kulka != null)
@@ -81,19 +84,20 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.P) && shopScreen.activeSelf == false && kulka != null)
         {
             boostSlider.gameObject.SetActive(false);
+            mainEventSystem.SetActive(false);
             shopScreen.SetActive(true);
             Time.timeScale = 0;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
-            kulka.GetComponent<Movement>().movementSpeed = 0.01f;
-            
+            evt = EventSystem.current;
         }
         else if(Input.GetKeyUp(KeyCode.P) && shopScreen.activeSelf == true && kulka != null)
         {
             boostSlider.gameObject.SetActive(true);
+            mainEventSystem.SetActive(true);
             shopScreen.SetActive(false);
             Time.timeScale = 1;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
-            kulka.GetComponent<Movement>().movementSpeed = 0.5f;
+            evt = EventSystem.current;
         }
     }
 
@@ -102,6 +106,7 @@ public class GameManager : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0;
         pauseScreen.SetActive(true);
+        evt = EventSystem.current;
         evt.SetSelectedGameObject(evt.firstSelectedGameObject);
         mainEventSystem.SetActive(false);
     }
@@ -112,6 +117,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         pauseScreen.SetActive(false);
         mainEventSystem.SetActive(true);
+        evt = EventSystem.current;
     }
 
 
@@ -141,5 +147,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void shopExit()
+    {
+        boostSlider.gameObject.SetActive(true);
+        shopScreen.SetActive(false);
+        Time.timeScale = 1;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+    }
 
 }

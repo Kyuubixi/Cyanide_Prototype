@@ -77,6 +77,7 @@ public class GameManagerMenu : MonoBehaviour
     {
         MainMenu.gameObject.SetActive(false);
         OptionsMenu.gameObject.SetActive(true);
+        evt = EventSystem.current;
         evt.SetSelectedGameObject(evt.firstSelectedGameObject);
     }
 
@@ -89,6 +90,7 @@ public class GameManagerMenu : MonoBehaviour
     {
         MainMenu.gameObject.SetActive(false);
         ExitConfirm.gameObject.SetActive(true);
+        evt = EventSystem.current;
         evt.SetSelectedGameObject(evt.firstSelectedGameObject);
     }
 
@@ -97,6 +99,7 @@ public class GameManagerMenu : MonoBehaviour
         OptionsMenu.gameObject.SetActive(false);
         ExitConfirm.gameObject.SetActive(false);
         MainMenu.gameObject.SetActive(true);
+        evt = EventSystem.current;
         evt.SetSelectedGameObject(evt.firstSelectedGameObject);
     }
 
