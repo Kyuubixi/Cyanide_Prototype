@@ -1,4 +1,7 @@
-// Here's a way I found to save your data with Binary Formatters so that your game data is protected which prevents any changes to for example a save file.
+// Here's a way I found to save your data with Binary Formatters.
+// With that you can make sure your game data is protected and a normal player won't be
+// able to change any data that is protected.
+
 
 using UnityEngine;
 using System.IO;
