@@ -20,8 +20,6 @@ public class SaveSystem : MonoBehaviour
 
     public static OptionsData LoadData()
     {
-        Debug.Log(Application.persistentDataPath);
-
         string path = Application.persistentDataPath + "/settings.json";
         if(File.Exists(path))
         {
