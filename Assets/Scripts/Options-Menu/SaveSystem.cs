@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+// Here's a way I found to save your data with Binary Formatters so that your game data is protected which prevents any changes to for example a save file.
+
+using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
